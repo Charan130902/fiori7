@@ -1,0 +1,124 @@
+<mvc:View
+    controllerName="com.employeedata1.controller.Empdataview"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Employee CRUD Application">
+
+        <content>
+
+            <VBox class="sapUiSmallMargin">
+
+                <Toolbar>
+
+                    <Button
+                        text="Add"
+                        type="Emphasized"
+                        icon="sap-icon://add"
+                        press="onAdd"
+                        visible="{view>/showMainButtons}"/>
+
+                    <Button
+                        text="Edit"
+                        icon="sap-icon://edit"
+                        press="onEdit"
+                        visible="{view>/showMainButtons}"/>
+
+                    <Button
+                        text="Delete"
+                        type="Reject"
+                        icon="sap-icon://delete"
+                        press="onDelete"
+                        visible="{view>/showMainButtons}"/>
+
+                    <Button
+                        text="Refresh"
+                        icon="sap-icon://refresh"
+                        press="onRefresh"/>
+
+                </Toolbar>
+
+                <Table
+                    id="empTable"
+                    items="{local>/EmployeeDataSet}"
+                    mode="SingleSelectLeft">
+
+                    <columns>
+
+                        <Column>
+                            <Text text="EMPID"/>
+                        </Column>
+
+                        <Column>
+                            <Text text="NAME"/>
+                        </Column>
+
+                        <Column>
+                            <Text text="LOCATION"/>
+                        </Column>
+
+                        <Column>
+                            <Text text="DESIGNATION"/>
+                        </Column>
+
+                    </columns>
+
+                    <items>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <Input
+                                    value="{local>EMPID}"
+                                    editable="{local>editable}"/>
+
+                                <Input
+                                    value="{local>NAME}"
+                                    editable="{local>editable}"/>
+
+                                <Input
+                                    value="{local>LOCATION}"
+                                    editable="{local>editable}"/>
+
+                                <Input
+                                    value="{local>DESIGNATION}"
+                                    editable="{local>editable}"/>
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+            </VBox>
+
+        </content>
+
+        <footer>
+
+            <Toolbar visible="{view>/showFooterButtons}">
+
+                <ToolbarSpacer/>
+
+                <Button
+                    text="Save"
+                    type="Accept"
+                    icon="sap-icon://save"
+                    press="onSave"/>
+
+                <Button
+                    text="Clear"
+                    type="Reject"
+                    icon="sap-icon://decline"
+                    press="onCancel"/>
+
+            </Toolbar>
+
+        </footer>
+
+    </Page>
+
+</mvc:View>
